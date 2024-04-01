@@ -7,6 +7,8 @@ import ImageComponent from './classcomponent/image/image';
 function App() {
   return (
      <div>
+     <h1>Click on submit</h1>
+     <br>git</br>
       <ImageComponent/>
       <br></br>
       <Button/>
