@@ -12,7 +12,7 @@ function App() {
       <ImageComponent/>
       <br></br>
       <Button/>
-      <h1>Complete successfully</h1>
+      <h1>Successfully complete</h1>
      </div>
   );
 }
