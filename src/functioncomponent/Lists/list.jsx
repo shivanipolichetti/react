@@ -3,7 +3,7 @@ import ListItems from "./listitems";
 
 
 const List=()=>{
-    const listItems=[{
+    const list=[{
         name:"apple",
         type:"fruit",
         id:1,
@@ -26,7 +26,7 @@ const List=()=>{
         <div>
         <ol>
         {
-            listItems.map((eachObject)=>{
+            list.map((eachObject)=>{
                     return(
                         //<li>{eachObject.name}</li>
                         <ListItems item={eachObject.name}/>

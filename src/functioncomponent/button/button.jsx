@@ -1,9 +1,11 @@
 
 
-function Button(){
+function Button({children}){
+   // console.log(props)
+    //const{children}=props
     return(
         <>
-        <button>Submit</button>
+       {children}
         </>
     )
 }

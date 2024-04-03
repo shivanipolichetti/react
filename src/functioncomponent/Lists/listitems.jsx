@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React  from 'react';
+
 const ListItems=(prop)=>{
     return(
        
@@ -9,7 +10,7 @@ const ListItems=(prop)=>{
             
 
         </React.Fragment>
-    )
+    );
 }
 
 export default ListItems;
