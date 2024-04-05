@@ -18,11 +18,7 @@ const ShowList=()=>{
             }
 
 
-{ filterArray("angular developer").map(value=><>
-                <h4>name:{value.name}</h4>
-                <h4>designation:{value.designation}</h4>
-                
-                </>)}
+
            
         </>
     )
