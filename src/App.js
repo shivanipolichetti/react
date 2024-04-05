@@ -1,10 +1,11 @@
-import './App.css';
-import CustomText from './functioncomponent/styling/inline';
+import FirstPage from "./functioncomponent/styling/bootstrap/firstpage";
+
 
 function App() {
   return(
     <div>
-    <CustomText/>
+      <FirstPage/>
+     
     </div>
   )
 
