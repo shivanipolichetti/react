@@ -1,15 +1,13 @@
-import FirstPage from "./functioncomponent/styling/bootstrap/firstpage";
+import Button from "./classcomponent/image/button/button";
+
 
 
 function App() {
   return(
     <div>
-      <FirstPage/>
-     
+    <Button/>
     </div>
   )
-
-
 }
 
 export default App;
