@@ -1,11 +1,10 @@
-import Button from "./classcomponent/image/button/button";
+import ButtonComponent from "./classcomponent/image/button/button";
 
 
-
-function App() {
+function App(){
   return(
     <div>
-    <Button/>
+     <ButtonComponent/>
     </div>
   )
 }
