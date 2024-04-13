@@ -1,0 +1,32 @@
+.productlist{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 60px;
+    gap:20px;
+}
+.cardform{
+    width:400px;
+    height:500px;
+    color:black;
+    border: 2px solid whitesmoke;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow:5px 10px 5px whitesmoke;
+    transition: transform 0.2s;
+    background-color: white; 
+    
+    
+   
+}
+.cardform:hover{
+    transform: scale(1.5);
+    
+}
+button{
+    width:200px;
+    height:40px;
+    color:lightcyan;
+    font-weight: bold;
+    background-color: lightblue;
+}
