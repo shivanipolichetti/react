@@ -1,11 +1,12 @@
-import ProductList from "./classcomponent/image/mounting/productlist";
-import "./App.css";
+import Unmounting from "./classcomponent/image/mounting/unmounting/umount";
+import Updating from "./classcomponent/image/mounting/updating/updating";
 
 
 function App(){
   return(
     <div className="app">
-     <ProductList/>
+    <Updating/>
+    <Unmounting/>
     </div>
   )
 }

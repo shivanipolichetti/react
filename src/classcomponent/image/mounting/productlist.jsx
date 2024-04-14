@@ -4,8 +4,13 @@ import { Spinner } from "react-bootstrap";
 import "./index.css";
 
 class ProductList extends Component{
-    state={
-        products:[]
+    constructor(){
+        console.log(constructor)
+        super()
+      this.state={
+        products:[],
+        favoriteColor:"green"
+      }
     }
 
     deletecard=(index)=>{
@@ -18,9 +23,16 @@ class ProductList extends Component{
         )
 
     }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log("getDerivedStateFromProps")
+       return{favoriteColor:props.favcol}
+      }
     
     
     componentDidMount(){
+        document.title="hello world"
+        console.log("componentDidMount")
        this.fetchData()
     }
     /*fetchData=()=>{
@@ -43,19 +55,19 @@ class ProductList extends Component{
     }
     
     render(){
-        console.log(this.state.products, "log render")
+        console.log("render")
         return(
             <>
-            <h4>Product Listing</h4>
+            <h4 style={{color:this.state.favoriteColor}}>Product Listing</h4>
            {
             this.state.products.length>0
             ?
             <div className="productlist">
             {
                 this.state.products.map((eachObject,index)=>{
-                    const{title,thumbnail,category,description,price}=eachObject
+                    const{title,thumbnail,category,description,price,id}=eachObject
                     return(
-                        <div className="cardform">
+                        <div className="cardform" key={id}>
                         <h4>{title}</h4>
                         <img src={thumbnail} alt={title} width={80}></img>
                         <h6>{description}</h6>
