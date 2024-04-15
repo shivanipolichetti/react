@@ -25,9 +25,7 @@ class Unmounting extends Component{
                 <Child/>
                 :
                 <h5>No child found</h5>
-
-            }
-              
+            }       
    </>
         )
     }

@@ -1,15 +1,12 @@
-import Unmounting from "./classcomponent/image/mounting/unmounting/umount";
-import Updating from "./classcomponent/image/mounting/updating/updating";
+import ParentComponent from "./classcomponent/image/purecomponent/parent";
 
 
 function App(){
   return(
     <div className="app">
-    <Updating/>
-    <Unmounting/>
+   <ParentComponent Color={"red"}/>
     </div>
   )
 }
-
 export default App;
 
