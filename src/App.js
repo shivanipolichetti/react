@@ -1,9 +1,14 @@
-import UncontrolledInput from "./functioncomponent/Forms/UncontrolledEx";
+import ControlledComponent from "./functioncomponent/Forms/Controlled";
+import ControlledEx from "./functioncomponent/Forms/Controlled2";
+
 
 function App(){
   return(
     <div className="App">
-    <UncontrolledInput/>
+    {/*<ControlledComponent/>*/}
+    <ControlledEx/>
+    
+    
     </div>
   )
 }
