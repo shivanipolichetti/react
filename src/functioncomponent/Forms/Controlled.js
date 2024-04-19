@@ -1,5 +1,5 @@
 import { useState } from "react";
-// only for two or three inputs
+// only for two or three inputsgi
 const ControlledComponent=()=>{
     const [username,setUsername]=useState("")
     const [password,setPassword]=useState("")
