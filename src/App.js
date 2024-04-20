@@ -1,14 +1,11 @@
-import ControlledComponent from "./functioncomponent/Forms/Controlled";
-import ControlledEx from "./functioncomponent/Forms/Controlled2";
-
+import UseEffectEx1 from "./functioncomponent/Hooks/useState/useEffect/useEffectEx1";
+import UseEffectEx2 from "./functioncomponent/Hooks/useState/useEffect/useEffectEx2";
 
 function App(){
   return(
-    <div className="App">
-    {/*<ControlledComponent/>*/}
-    <ControlledEx/>
-    
-    
+    <div>
+    <UseEffectEx1/>
+    <UseEffectEx2/>
     </div>
   )
 }
