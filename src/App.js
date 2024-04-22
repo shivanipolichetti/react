@@ -1,10 +1,10 @@
-import TaskUseEffect from "./functioncomponent/Hooks/useState/useEffect/effecttask";
+import NavigationStack from "./navigation/navigation-stack";
 
 
 function App(){
   return(
     <div>
-    <TaskUseEffect/>
+    <NavigationStack/>
     </div>
   )
 }
