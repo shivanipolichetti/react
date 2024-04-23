@@ -1,15 +1,34 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomeScreen from "../pages/homescreen";
-import ContactScreen from "../pages/Contact";
+import ContactScreen from "../pages/contact";
 import InvalidScreen from "../pages/Invalidscreen";
 import ProductDetails from "../pages/productdeatils";
 import LoginScreen from "../pages/login-screen";
-import { useState } from "react";
+import { createContext, useState } from "react";
 
+
+export const DataShare=createContext()
 
 const NavigationStack=()=>{
-    const [login,setLogin]=useState(false)
+    const [login,setLogin]=useState(true)
+     const [data,setData]=useState(
+        {
+            name:"sai",
+            city:"hyderabad",
+            isIndian:true,
+            mobile:89807689
+            }
+     )
+     const changeData=()=>{
+        setData({...data,name:"ram"})
+     }
+    
     return(
+        <DataShare.Provider value={{
+            data,
+            changeData,
+           
+        }}>
        <BrowserRouter>
         {
             login
@@ -27,6 +46,7 @@ const NavigationStack=()=>{
     }
        
        </BrowserRouter>
+       </DataShare.Provider>
     )
 }
 export default NavigationStack;

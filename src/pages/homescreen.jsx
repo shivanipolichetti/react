@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../components/header";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { DataShare } from "../navigation/navigation-stack";
 
 
 const HomeScreen=()=>{
     const [products,setProducts]=useState([])
+    //const {name}=useContext(DataShare)
     useEffect(()=>{
        fetchProduct()
     },[])
@@ -13,7 +15,7 @@ const HomeScreen=()=>{
     const fetchProduct=async()=>{
        try{
         const response=await axios.get("https://dummyjson.com/products")
-        console.log(response)
+            console.log(response)
         if(response.status===200){
             setProducts(response.data.products)
         }else{
@@ -27,7 +29,7 @@ const HomeScreen=()=>{
     return(
         <>
          <Header/>
-        <h1>Welcome to Home Screen</h1>
+        <h1>Welcome to Home Screen </h1>
         {
             products.length>0
             ?

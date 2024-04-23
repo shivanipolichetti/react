@@ -13,6 +13,7 @@ const ProductDetails=()=>{
     const fetchProduct=async()=>{
         try{
             const response=await axios.get("https://dummyjson.com/products/1")
+            console.log(response)
             if(response.status===200){
                 setProduct(response.data)
             }
@@ -24,6 +25,7 @@ const ProductDetails=()=>{
     //console.log(dynamicContent,"Step 1")
     return(
         <>
+        <Header/>
         <h1>Products Details</h1>
         {
             <>
