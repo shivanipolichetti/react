@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/header";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { DataShare } from "../navigation/navigation-stack";
+import UseEffectExample from "../functioncomponent/Hooks/useState/useEffect/useffectExample";
 
 
 const HomeScreen=()=>{
+
     const [products,setProducts]=useState([])
-    //const {name}=useContext(DataShare)
     useEffect(()=>{
        fetchProduct()
     },[])
@@ -15,7 +15,7 @@ const HomeScreen=()=>{
     const fetchProduct=async()=>{
        try{
         const response=await axios.get("https://dummyjson.com/products")
-            console.log(response)
+        console.log(response)
         if(response.status===200){
             setProducts(response.data.products)
         }else{
@@ -28,37 +28,39 @@ const HomeScreen=()=>{
     }
     return(
         <>
-         <Header/>
-        <h1>Welcome to Home Screen </h1>
-        {
-            products.length>0
-            ?
-            <>
-            {
-                products.map(eachProduct=>{
-                      const {brand,price,description,title,category,thumbnail,id}=eachProduct
-                    return(
-                        <>
-                          <h1>{title}</h1>   
-                          <img src={thumbnail} width={200}/>
-                          <h5>{description}</h5>
-                          <h5>{brand}</h5>
-                          <h5>{category}</h5>
-                          <h6>${price}</h6>
-                          <button>
-                            <Link to={`${brand}/${id}`}>
-                            Click to see product
-                            </Link>
-                            </button>
-                        </>
-                    )
-                })
-            }
-            </>
-            :
-            <h3>Loading......</h3>
-        }
-        </>
+        <Header/>
+       <h1>Welcome to Home Screen</h1>
+       <UseEffectExample/>
+       {
+           products.length>0
+           ?
+           <>
+           {
+               products.map(eachProduct=>{
+                     const {brand,price,description,title,category,thumbnail,id}=eachProduct
+                   return(
+                       <>
+                         <h1>{title}</h1>   
+                         <img src={thumbnail} width={200}/>
+                         <h5>{description}</h5>
+                         <h5>{brand}</h5>
+                         <h5>{category}</h5>
+                         <h6>${price}</h6>
+                         <button>
+                          <Link to={`${brand}/${id}`}>
+                          Click to see  Product
+                          </Link>
+                           </button>
+                       </>
+                   )
+               })
+           }
+           </>
+           :
+           <h3>Loading......</h3>
+       }
+       </>
+       
     )
 }
 export default HomeScreen;

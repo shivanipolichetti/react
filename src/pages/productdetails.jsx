@@ -1,10 +1,8 @@
-import { useParams } from "react-router-dom";
-import Header from "../components/header";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 
-
-const ProductDetails=()=>{
+const ProductDeatils=()=>{
     const {productId}=useParams()
     const [product,setProduct]=useState({})
     useEffect(()=>{
@@ -13,7 +11,6 @@ const ProductDetails=()=>{
     const fetchProduct=async()=>{
         try{
             const response=await axios.get("https://dummyjson.com/products/1")
-            console.log(response)
             if(response.status===200){
                 setProduct(response.data)
             }
@@ -23,10 +20,10 @@ const ProductDetails=()=>{
         }    
     }
     //console.log(dynamicContent,"Step 1")
+    
     return(
-        <>
-        <Header/>
-        <h1>Products Details</h1>
+    <>
+    <h1>Products Details</h1>
         {
             <>
             <h5>{product?.brand}</h5>
@@ -34,11 +31,13 @@ const ProductDetails=()=>{
             <img src={product.thumbnail}/>
             <h5>{product?.description}</h5>
              <h5>{product.category}</h5> 
+             <h5>${product.price}</h5>
               </>
         }
-        </>
+    
+    
+    
+    </>
     )
 }
-export default ProductDetails;
-
-
+export  default ProductDeatils;
