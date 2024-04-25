@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DataShare } from "../navigation/navigation-stack";
 
 
 
 
 const Header=()=>{
- 
+ const {cartItems}=useContext(DataShare)
     return(
      
         <nav className="navbar navbar-expand-sm bg-light navbar-light">
@@ -19,7 +21,7 @@ const Header=()=>{
     </a>*/}
       </li>
       <li className="nav-item" style={{margin:10}}>
-      <Link to={"contact"} style={{textDecoration:"none",color:"black"}}>
+      <Link to={"/contact"} style={{textDecoration:"none",color:"black"}}>
         Contact
       </Link>
        
@@ -29,7 +31,7 @@ const Header=()=>{
     
       </li>
       <li className="nav-item" style={{margin:10}}>
-      <Link to={"login"} style={{textDecoration:"none",color:"black"}}>
+      <Link to={"/"} style={{textDecoration:"none",color:"black"}}>
         Login
       </Link>
        
@@ -37,6 +39,11 @@ const Header=()=>{
           Link
     </a>*/}
     
+      </li>
+      <li  className="nav-item"style={{margin:10}}>
+      <Link to={"/cartscreen"} style={{textDecoration:"none",color:"black"}}>
+        Cartscreen {cartItems.length}
+      </Link>
       </li>
      
     </ul>

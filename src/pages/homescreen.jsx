@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../components/header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import UseEffectExample from "../functioncomponent/Hooks/useState/useEffect/useffectExample";
+import { DataShare } from "../navigation/navigation-stack";
 
 
 const HomeScreen=()=>{
-
     const [products,setProducts]=useState([])
+    const {addCartItems}=useContext(DataShare)
     useEffect(()=>{
        fetchProduct()
     },[])
@@ -51,6 +52,7 @@ const HomeScreen=()=>{
                           Click to see  Product
                           </Link>
                            </button>
+                           <button onClick={()=>addCartItems(eachProduct)}>Add to cart</button>
                        </>
                    )
                })

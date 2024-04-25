@@ -1,10 +1,11 @@
+import { type } from "@testing-library/user-event/dist/type"
 import { useReducer } from "react"
 
 
 const  reducerFunction=(state,action)=>{
  switch(action.type){
     case "INCREMENT_AGE":
-        return{...state,age:state.age+10}
+        return{...state,age:state.age+action.payload}
     case "DECREMENT_AGE":
         return{...state,age:state.age-10}
     case  "RESET_AGE":
@@ -37,7 +38,8 @@ const UseReducerExample=()=>{
   const [currentValue,dispatchFunction]=useReducer(reducerFunction,initialState)
    const incrementAge=()=>{
      const action={
-        type:"INCREMENT_AGE"
+        type:"INCREMENT_AGE",
+        payload:20
      } 
     
     dispatchFunction(action)
@@ -54,6 +56,7 @@ const UseReducerExample=()=>{
         <h4>UseReducer Example</h4>
         <h5>{currentValue.name}</h5>
         <h5>{currentValue.age}</h5>
+        <h5>{currentValue.todos}</h5>
         <button onClick={incrementAge}>Increment age</button>
         <button onClick={decrementAge}>Decrement age</button>
         <button>Increment count</button>
@@ -63,6 +66,11 @@ const UseReducerExample=()=>{
                 type:"CHANGE_NAME"
             })
         }}>Change name</button>
+        <button onClick={()=>{
+            dispatchFunction({
+                type:"ADD_TODO"
+            })
+        }}>add list</button>
         
         </>
     )

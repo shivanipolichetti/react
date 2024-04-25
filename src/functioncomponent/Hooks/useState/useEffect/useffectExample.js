@@ -5,19 +5,19 @@ import { useEffect, useState } from "react"
 const UseEffectExample=()=>{
     const [X,setX]=useState(0)
     const [Y,setY]=useState(0)
+    const mouseMoveCapture=(event)=>{
+        setX(event.clientX)
+        setY(event.clientY)  
+      console.log(event.clientX ,"event captured by x-axios")
+       console.log(event.clientY,"event captured by y-axios")    
+    }
     useEffect(()=>{
-        const mouseMoveCapture=(event)=>{
-            setX(event.clientX)
-            setY(event.clientY)  
-          console.log(event.clientX ,"event captured by x-axios")
-           console.log(event.clientY,"event captured by y-axios")    
-        }
-        window.addEventListener("mousemove",(event)=>{
-        return()=>{
+
+        window.addEventListener("mousemove",mouseMoveCapture)
+        return ()=>{
 
             window.removeEventListener("mousemove",mouseMoveCapture)
         }
-    })
     },[])
     return(
         <>
