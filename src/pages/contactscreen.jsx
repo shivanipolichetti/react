@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import Header from "../components/header";
 import { DataShare } from "../navigation/navigation-stack";
-import UseReducerExample from "../functioncomponent/Hooks/useState/useReducer/useReducer";
+import UseMemo from "../functioncomponent/Hooks/useState/useMemo/useMemoEx";
+import ParentComponent from "../functioncomponent/Hooks/useState/useCallback/parent";
 
 
 const ContactScreen=()=>{
@@ -9,9 +10,8 @@ const ContactScreen=()=>{
     return(
        <>
        <Header/>
-       <UseReducerExample/>
-       <h1>Welcome to Contact Screen {data.name}</h1>
-       <button onClick={changeData}>Click to change the name</button>
+       {/*<UseMemo/>*/}
+       <ParentComponent/>
        </>
     )
 }
