@@ -7,14 +7,13 @@ import { useSelector } from "react-redux";
 
 const CartScreen=()=>{
    
-    const{cartItems}=useContext(DataShare)
-    console.log(cartItems,"cartItems")
-    console.log("STEP2")
+    const reduxStore=useContext(DataShare)
+    console.log(reduxStore)
     return(
         <>
         <Header/>
         <h4>Cart Page</h4>
-       
+    
        
         {/*
             cartItems.length>0

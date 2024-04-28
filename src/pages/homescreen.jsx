@@ -7,12 +7,15 @@ import { DataShare } from "../navigation/navigation-stack";
 import { Button } from "bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { todoActionAdd } from "../redux/actions/action";
+import { reduxStore } from "../redux/store/store";
+import { productAction, productActionErr } from "../redux/actions/products-action";
 
 
 const HomeScreen=()=>{
     const [products,setProducts]=useState([])
-    const {todos}=useSelector(state=>state)
     const [todoValue,setTodoValue]=useState("")
+    const todos=useSelector(state=>state.todos.todos)
+    //console.log(reduxStore)
     const dispatch=useDispatch()
     const {addCartItems}=useContext(DataShare)
     useEffect(()=>{
@@ -24,9 +27,11 @@ const HomeScreen=()=>{
         const response=await axios.get("https://dummyjson.com/products")
         console.log(response)
         if(response.status===200){
-            setProducts(response.data.products)
+            dispatch(productAction(response.data.products))
+            //setProducts(response.data.products)
         }else{
-            console.error("unexpected error")
+            dispatch(productActionErr())
+            //console.error("unexpected error")
         }
        }
        catch(err){
@@ -53,8 +58,8 @@ const HomeScreen=()=>{
             <>
             <h3>{todo}</h3>
             </>)
-        }
-      {/*<UseEffectExample/>
+            }
+      <UseEffectExample/>
        {
            products.length>0
            ?
@@ -83,7 +88,7 @@ const HomeScreen=()=>{
            </>
            :
            <h3>Loading......</h3>
-       }*/}
+       }
        </>
        
     )
