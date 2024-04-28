@@ -1,10 +1,15 @@
+import { Provider } from "react-redux";
 import NavigationStack from "./navigation/navigation-stack";
+import { reduxStore } from "./redux/store/store";
 
 
 function App(){
   return(
     <div>
-     <NavigationStack/>
+      <Provider store={reduxStore}>
+      <NavigationStack/>
+      </Provider>
+    
     </div>
   )
 }

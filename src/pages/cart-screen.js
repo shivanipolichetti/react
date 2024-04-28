@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import Header from "../components/header";
 import { DataShare } from "../navigation/navigation-stack";
+import { useSelector } from "react-redux";
 
 
 
 const CartScreen=()=>{
+   
     const{cartItems}=useContext(DataShare)
     console.log(cartItems,"cartItems")
     console.log("STEP2")
@@ -12,7 +14,9 @@ const CartScreen=()=>{
         <>
         <Header/>
         <h4>Cart Page</h4>
-        {
+       
+       
+        {/*
             cartItems.length>0
             ?
             <>
@@ -33,7 +37,7 @@ const CartScreen=()=>{
             </>
         :
         <h4>Cart is empty</h4>
-        }
+        */}
         </>
     )
 }

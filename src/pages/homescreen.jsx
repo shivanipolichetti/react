@@ -4,10 +4,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UseEffectExample from "../functioncomponent/Hooks/useState/useEffect/useffectExample";
 import { DataShare } from "../navigation/navigation-stack";
+import { Button } from "bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { todoActionAdd } from "../redux/actions/action";
 
 
 const HomeScreen=()=>{
     const [products,setProducts]=useState([])
+    const {todos}=useSelector(state=>state)
+    const [todoValue,setTodoValue]=useState("")
+    const dispatch=useDispatch()
     const {addCartItems}=useContext(DataShare)
     useEffect(()=>{
        fetchProduct()
@@ -27,11 +33,28 @@ const HomeScreen=()=>{
         console.error(err)
        }
     }
+    const addTodo=()=>{
+        console.log(todoValue)
+      dispatch(todoActionAdd(todoValue))
+    }
+    const inputFunction=(event)=>{
+        setTodoValue(event.target.value)
+    }
     return(
         <>
         <Header/>
        <h1>Welcome to Home Screen</h1>
-       <UseEffectExample/>
+      <input type="text" value={todoValue}
+      onChange={inputFunction}
+      />
+            <button onClick={addTodo}>Add todo</button>
+            {
+            todos.map(todo=>
+            <>
+            <h3>{todo}</h3>
+            </>)
+        }
+      {/*<UseEffectExample/>
        {
            products.length>0
            ?
@@ -60,7 +83,7 @@ const HomeScreen=()=>{
            </>
            :
            <h3>Loading......</h3>
-       }
+       }*/}
        </>
        
     )
